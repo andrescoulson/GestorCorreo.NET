@@ -1,0 +1,1 @@
+c:\users\lab_redes\documents\visual studio 2012\Projects\MailSolution\Mail\bin\Debug\Mail.exe.config
