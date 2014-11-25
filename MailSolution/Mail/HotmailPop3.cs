@@ -106,9 +106,9 @@ namespace Mail
             return result;
         }
 
-        public string[] getCredential()
+        public String[] getCredential()
         {
-            String[] result = new String[1];
+            String[] result = new String[2];
 
             result[0] = this.User;
             result[1] = this.Password;

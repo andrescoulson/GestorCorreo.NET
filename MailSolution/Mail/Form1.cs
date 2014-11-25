@@ -15,6 +15,7 @@ namespace Mail
     {
         int Page;
         ClienteMail cliente;
+        ClienteSmtp send;
         DataTable inbox = new DataTable();
         public Form1()
         {
@@ -23,6 +24,7 @@ namespace Mail
             inbox.Columns.Add("Subject");
             inbox.Columns.Add("Date");
             panelGridview.Visible = false;
+            panelSendEmail.Visible = false;
         }
 
         private void fillInbox(int AddOrSub)
@@ -34,8 +36,8 @@ namespace Mail
             }
             inbox = cliente.FillDataGrid(Page); ;
             this.dataGridView1.DataSource = inbox;
-            this.dataGridView2.DataSource = inbox;
-            this.dataGridView2.AutoResizeColumns();
+           // this.dataGridView2.DataSource = inbox;
+           // this.dataGridView2.AutoResizeColumns();
             this.dataGridView1.AutoResizeColumns();
             this.lblPage.Text = "Página " + (Page + 1);
         }
@@ -56,16 +58,19 @@ namespace Mail
                 {
                     cliente = new ClienteMail(new HotmailPop3());
                     cliente.Credentials(user, pass);
+                    send = new ClienteSmtp(new HotmailSmtp());
                 }else
                 if (words[1] == "yahoo.com")
                 {
                     cliente = new ClienteMail(new YahooPop3());
                     cliente.Credentials(user, pass);
+                    send = new ClienteSmtp(new YahooSmtp());
                 }else
                 if (words[1] == "gmail.com")
                 {
                     cliente = new ClienteMail(new GmailPop3());
                     cliente.Credentials(user, pass);
+                    send = new ClienteSmtp(new GmailSmtp());
                 }
 
                 if(cliente.conectar())
@@ -95,6 +100,53 @@ namespace Mail
         private void btnBack_Click(object sender, EventArgs e)
         {
             fillInbox(-1);
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            panelSendEmail.Visible = true;
+        }
+
+        private void btnBackInox_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAddAdjunto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            DialogResult resultado = file.ShowDialog();
+
+            if(resultado == DialogResult.OK)
+            {
+                listBoxAdjunto.Items.Add(file.FileName);
+            }
+        }
+
+        private void btnSendd_Click(object sender, EventArgs e)
+        {
+            String to = txtTo.Text;
+            String subject = txtSubject.Text;
+            String body = richTxtBx.Text;
+            String[] attach = new String[listBoxAdjunto.Items.Count];
+            String[] cred =cliente.getCredential();
+            for (int i = 0; i < listBoxAdjunto.Items.Count; i++)
+            {
+                attach[i] = listBoxAdjunto.Items[i].ToString();
+            }
+            string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                              @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" + 
+                              @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex re = new Regex(strRegex);
+            if (re.IsMatch(to))
+            {
+                send.Send(to, subject, body, attach, cred);
+                panelSendEmail.Visible = false;
+            }
+            else
+                MessageBox.Show("Correo invalido !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+
         }
 
        

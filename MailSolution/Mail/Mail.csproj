@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteMail.cs" />
+    <Compile Include="ClienteSmtp.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

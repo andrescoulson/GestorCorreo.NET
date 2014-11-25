@@ -14,9 +14,10 @@ namespace Mail
         public void enviar(String To, String Subject, String Body, String[] Attach, String[] credentials)
         {
             String[] credential = credentials;
+            String[] word = credential[0].Split('@');
             try
             {
-                SmtpClient c = new SmtpClient("smtp.gmail.com", 587);
+                SmtpClient c = new SmtpClient("smtp.live.com", 587);
                 MailAddress add = new MailAddress(To);
                 MailMessage msg = new MailMessage();
                 msg.To.Add(add);
