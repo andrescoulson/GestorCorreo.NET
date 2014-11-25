@@ -7,8 +7,9 @@ using System.Text;
 
 namespace Mail
 {
-    public interface ISmtp
+    public abstract class SMTPServer 
     {
-        void enviar(String To, String Subject, String Body, String[] Attach,String [] credentials);             
-    }
+        public Pop3Server server;
+        public abstract void print();
+     }
 }

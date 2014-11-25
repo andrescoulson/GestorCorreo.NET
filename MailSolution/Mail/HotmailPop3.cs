@@ -11,12 +11,15 @@ namespace Mail
 {
     public class HotmailPop3 : Pop3Server, IPop3
     {
-        int Page;
+        DataTable inbox = new DataTable();
         public HotmailPop3()
         {
             this.server = new Pop3Client();
             this.Host = "pop3.live.com";
             this.Port = 995;
+            inbox.Columns.Add("From");
+            inbox.Columns.Add("Subject");
+            inbox.Columns.Add("Date");
             
         }
 
@@ -30,7 +33,7 @@ namespace Mail
 
         }
         
-        bool conectar()
+        public bool conectar()
         {
             try
             {
@@ -44,14 +47,10 @@ namespace Mail
             return true;
         }
 
-        public DataTable FillInbox(int AddOrSub)
+        public DataTable FillInbox(int Page)
         {
-            DataTable inbox = new DataTable();
-            Page = Page + AddOrSub;
-            if (Page < 0)
-            {
-                Page = 0;
-            }
+            
+                        
             Dictionary<int, MyHeaders> headers = this.getInbox(Page);
             inbox.Rows.Clear();
             foreach (KeyValuePair<int, MyHeaders> entry in headers)
@@ -73,7 +72,7 @@ namespace Mail
             return this.server.GetMessageCount();
         }
 
-        public bool Disconect()
+        public override bool Disconect()
         {
             return true;
         }
@@ -103,6 +102,16 @@ namespace Mail
                 result.Add(i, temp);
 
             }
+
+            return result;
+        }
+
+        public string[] getCredential()
+        {
+            String[] result = new String[1];
+
+            result[0] = this.User;
+            result[1] = this.Password;
 
             return result;
         }

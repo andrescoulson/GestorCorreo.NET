@@ -14,6 +14,6 @@ namespace Mail
         public String User;
         public String Password;
 
-        public abstract void Disconect();
+        public abstract bool Disconect();
     }
 }

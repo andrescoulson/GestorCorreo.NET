@@ -13,12 +13,13 @@ namespace Mail
     
         bool conectar();
 
-        DataTable FillInbox();
+        DataTable FillInbox(int p);
 
         OpenPop.Mime.Message GetMessage(int c);
 
-        void GetCountMessage();
+        int GetCountMessage();
 
+        String[] getCredential();
 
         void Credentials(String user, String pass);
 
