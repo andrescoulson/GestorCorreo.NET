@@ -37,7 +37,7 @@ namespace Mail
             try
             {
                 this.server.Connect(this.Host, this.Port, true);
-                this.server.Authenticate(this.User, this.Password, AuthenticationMethod.UsernameAndPassword);
+                this.server.Authenticate(this.User, this.Password);
 
             }
             catch (Exception ex)

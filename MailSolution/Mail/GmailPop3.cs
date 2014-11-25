@@ -11,9 +11,13 @@ namespace Mail
 {
     public class GmailPop3 : Pop3Server, IPop3
     {
+<<<<<<< HEAD
 
         DataTable inbox = new DataTable();
+=======
+>>>>>>> origin/master
 
+        DataTable inbox = new DataTable();
         public GmailPop3()
         {
             this.server = new Pop3Client();
@@ -42,8 +46,8 @@ namespace Mail
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Usuario o Contraseña Incorrectos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                 MessageBox.Show("Usuario o Contraseña Incorrectos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 return false;
             }
             return true;
         }
@@ -90,9 +94,16 @@ namespace Mail
 
 
         public DataTable FillInbox(int Page)
+<<<<<<< HEAD
         {
                        
             Dictionary<int, MyHeaders> headers = this.getInbox(Page);           
+=======
+        {      
+
+            Dictionary<int, MyHeaders> headers = this.getInbox(Page);
+            inbox.Rows.Clear();
+>>>>>>> origin/master
             foreach (KeyValuePair<int, MyHeaders> entry in headers)
             {
                 try

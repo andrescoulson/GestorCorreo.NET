@@ -62,6 +62,7 @@ namespace Mail
                 if (cliente != null)
                 {
                     cliente.Credentials(user, pass);
+<<<<<<< HEAD
                     if (cliente.conectar())
                     {
                         //panelLogin.Visible = false;
@@ -71,9 +72,36 @@ namespace Mail
                     }
                 }
                 else
+=======
+                    send = new ClienteSmtp(new HotmailSmtp());
+                }else
+                if (words[1] == "yahoo.com")
+                {
+                    cliente = new ClienteMail(new YahooPop3());
+                    cliente.Credentials(user, pass);
+                    send = new ClienteSmtp(new YahooSmtp());
+                }else
+                if (words[1] == "gmail.com")
+                {
+                    cliente = new ClienteMail(new GmailPop3());
+                    cliente.Credentials(user, pass);
+                    send = new ClienteSmtp(new GmailSmtp());
+                }
+
+                if (cliente.conectar())
+                {
+                    //panelLogin.Visible = false;
+                    panelGridview.Visible = true;
+
+                    fillInbox(0);
+                }            
+                else
+                {
+                    txtPass.Clear();
+>>>>>>> origin/master
                     MessageBox.Show("Error en Envio de Datos Servicio no disponible !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-
+                }
 
 
             }
