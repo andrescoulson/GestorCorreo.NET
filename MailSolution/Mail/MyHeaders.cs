@@ -10,8 +10,8 @@ namespace Mail
         public String From;
         public String Subject;
         public String Date;
-
-        public MyHeaders(String From, String Subject, String Date)
+        
+        public MyHeaders(String From, String Subject, String Date )
         {
             this.From = From;
             this.Subject = Subject;

@@ -32,7 +32,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Mail.HotmailPop3" Collapsed="true">
-    <Position X="8.25" Y="2.75" Width="1.5" />
+    <Position X="9.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAIACAAAAAAAAAAAMAAAAAAAEAEAAAAAAAAYAAAA=</HashCode>
       <FileName>HotmailPop3.cs</FileName>
@@ -40,58 +40,72 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Mail.YahooPop3" Collapsed="true">
-    <Position X="10.75" Y="2.75" Width="1.5" />
+    <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAIACAAAAAAAAAAAMAAAAAAAEAEAAAAAAAAIAAAA=</HashCode>
+      <HashCode>ACAAAIACAAAAAAAAAAAMAAAAAAAEAEAAAAAAAAYAAAA=</HashCode>
       <FileName>YahooPop3.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Mail.GmailPop3" Collapsed="true">
-    <Position X="6" Y="2.75" Width="1.5" />
+    <Position X="9.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAIACAAAAAAAAAAAMAAAAAAAEAEAAAAAAAAIAAAA=</HashCode>
+      <HashCode>ACAAAIACAAAAAAAAAAAMAAAAAAAEAEAAAAAAAAYAAAA=</HashCode>
       <FileName>GmailPop3.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Mail.Pop3Server" Collapsed="true">
-    <Position X="8" Y="1" Width="1.5" />
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAIAAAAAAAAAAAAAAAAAACAAACAACAAAAAAAAAAI=</HashCode>
       <FileName>Pop3Server.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mail.MyHeaders" Collapsed="true">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAIAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>MyHeaders.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Mail.ClienteMail" Collapsed="true">
-    <Position X="4.75" Y="3.75" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAAAIAAAAgAAEAAAAAAAAAAAAgAA=</HashCode>
       <FileName>ClienteMail.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Mail.ClienteSmtp">
-    <Position X="4.75" Y="4.5" Width="1.5" />
+  <Class Name="Mail.ClienteSmtp" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ClienteSmtp.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Mail.IPop3">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+  <Class Name="Mail.FactoryPop">
+    <Position X="4.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FactoryPop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mail.FactorySmtp">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FactorySmtp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Mail.IPop3" Collapsed="true">
+    <Position X="6.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAACAAAAAAAAAAAMAAAAAAAEAEAAAAAAAAIAAAA=</HashCode>
       <FileName>IPop3.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Mail.ISmtp" Collapsed="true">
-    <Position X="2.5" Y="4" Width="1.5" />
+    <Position X="2.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ISmtp.cs</FileName>

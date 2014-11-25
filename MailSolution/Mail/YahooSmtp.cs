@@ -16,7 +16,7 @@ namespace Mail
             String[] credential = credentials;
             try
             {
-                SmtpClient c = new SmtpClient("smtp.mail.yahoo.com", 25);
+                SmtpClient c = new SmtpClient("smtp.mail.yahoo.com", 587);
                 MailAddress add = new MailAddress(To);
                 MailMessage msg = new MailMessage();
                 msg.To.Add(add);

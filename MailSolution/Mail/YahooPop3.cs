@@ -11,16 +11,22 @@ namespace Mail
 {
     public class YahooPop3 : Pop3Server, IPop3
     {
+        DataTable inbox = new DataTable();
         public YahooPop3()
         {
             this.server = new Pop3Client();
             this.Host = "pop.mail.yahoo.com";
+            //this.Host = "plus.pop.mail.yahoo.com";
             this.Port = 995;
+            inbox.Columns.Add("From");
+            inbox.Columns.Add("Subject");
+            inbox.Columns.Add("Date");
         }
 
         public YahooPop3(String user, String pass)
         {
             this.Host = "pop.mail.yahoo.com";
+            //this.Host = "plus.pop.mail.yahoo.com";
             this.Port = 995;
             this.User = user;
             this.Password = pass; 
@@ -45,7 +51,7 @@ namespace Mail
         public DataTable FillInbox(int Page)
         {
             
-            DataTable inbox = new DataTable();
+            
             
             Dictionary<int, MyHeaders> headers = this.getInbox(Page);
             inbox.Rows.Clear();
@@ -83,7 +89,7 @@ namespace Mail
         {
             Dictionary<int, MyHeaders> result = new Dictionary<int, MyHeaders>();
 
-            max = this.server.GetMessageCount() - (max * 10);
+            max = server.GetMessageCount() - (max * 10);
             int min = max - 10;
             if (min < 1)
             {

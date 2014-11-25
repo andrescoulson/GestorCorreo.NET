@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="ClienteMail.cs" />
     <Compile Include="ClienteSmtp.cs" />
+    <Compile Include="FactoryPop.cs" />
+    <Compile Include="FactorySmtp.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +62,7 @@
     <Compile Include="HotmailPop3.cs" />
     <Compile Include="HotmailSmtp.cs" />
     <Compile Include="IPop3.cs" />
+    <Compile Include="ServerPop3.cs" />
     <Compile Include="ISmtp.cs" />
     <Compile Include="MyHeaders.cs" />
     <Compile Include="Pop3Server.cs" />

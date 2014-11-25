@@ -16,6 +16,8 @@ namespace Mail
         int Page;
         ClienteMail cliente;
         ClienteSmtp send;
+        FactoryPop f = new FactoryPop();
+        FactorySmtp s = new FactorySmtp();        
         DataTable inbox = new DataTable();
         public Form1()
         {
@@ -53,33 +55,22 @@ namespace Mail
             Regex re = new Regex(strRegex);
             if (re.IsMatch(user))
             {
+               
+                cliente = f.Cliente(words[1]);
+                send = s.Cliente(words[1]);
 
-                if(words[1]== "hotmail.com")
+                if (cliente != null)
                 {
-                    cliente = new ClienteMail(new HotmailPop3());
                     cliente.Credentials(user, pass);
-                    send = new ClienteSmtp(new HotmailSmtp());
-                }else
-                if (words[1] == "yahoo.com")
-                {
-                    cliente = new ClienteMail(new YahooPop3());
-                    cliente.Credentials(user, pass);
-                    send = new ClienteSmtp(new YahooSmtp());
-                }else
-                if (words[1] == "gmail.com")
-                {
-                    cliente = new ClienteMail(new GmailPop3());
-                    cliente.Credentials(user, pass);
-                    send = new ClienteSmtp(new GmailSmtp());
+                    if (cliente.conectar())
+                    {
+                        //panelLogin.Visible = false;
+                        panelGridview.Visible = true;
+
+                        fillInbox(0);
+                    }
                 }
-
-                if(cliente.conectar())
-                {
-                   //panelLogin.Visible = false;
-                    panelGridview.Visible = true;
-
-                    fillInbox(0);
-                }else
+                else
                     MessageBox.Show("Error en Envio de Datos Servicio no disponible !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
@@ -89,6 +80,7 @@ namespace Mail
             else
             {
                 MessageBox.Show("Email Invalido!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPass.Clear();
             }
         }
 

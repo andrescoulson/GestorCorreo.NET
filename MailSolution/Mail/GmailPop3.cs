@@ -11,14 +11,17 @@ namespace Mail
 {
     public class GmailPop3 : Pop3Server, IPop3
     {
-        
-           
+
+        DataTable inbox = new DataTable();
 
         public GmailPop3()
         {
             this.server = new Pop3Client();
             this.Host = "pop.gmail.com";
             this.Port = 995;
+            inbox.Columns.Add("From");
+            inbox.Columns.Add("Subject");
+            inbox.Columns.Add("Date");
         }
 
         public GmailPop3(String user, String pass)
@@ -34,7 +37,7 @@ namespace Mail
             try
             {
                 this.server.Connect(this.Host, this.Port, true);
-                this.server.Authenticate(this.User, this.Password, AuthenticationMethod.UsernameAndPassword);
+                this.server.Authenticate(this.User, this.Password);
 
             }
             catch (Exception ex)
@@ -88,13 +91,18 @@ namespace Mail
 
         public DataTable FillInbox(int Page)
         {
-            DataTable inbox = new DataTable();          
-
-            Dictionary<int, MyHeaders> headers = this.getInbox(Page);
-            inbox.Rows.Clear();
+                       
+            Dictionary<int, MyHeaders> headers = this.getInbox(Page);           
             foreach (KeyValuePair<int, MyHeaders> entry in headers)
             {
-                inbox.Rows.Add(entry.Value.From, entry.Value.Subject, entry.Value.Date);
+                try
+                {
+                    inbox.Rows.Add(entry.Value.From, entry.Value.Subject, entry.Value.Date);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
 
             }
 

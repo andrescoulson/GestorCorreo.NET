@@ -1,1 +1,11 @@
 c:\users\lab_redes\documents\visual studio 2012\Projects\MailSolution\Mail\bin\Debug\Mail.exe.config
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\bin\Debug\Mail.exe.config
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\bin\Debug\Mail.exe
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\bin\Debug\Mail.pdb
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\bin\Debug\OpenPop.dll
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\obj\Debug\Mail.Form1.resources
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\obj\Debug\Mail.Properties.Resources.resources
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\obj\Debug\Mail.csproj.GenerateResource.Cache
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\obj\Debug\Mail.exe
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\obj\Debug\Mail.pdb
+C:\Users\Carlos\Documents\GitHub\NuevoPatrones\MailSolution\Mail\obj\Debug\Mail.csprojResolveAssemblyReference.cache
