@@ -73,16 +73,19 @@ namespace Mail
                     send = new ClienteSmtp(new GmailSmtp());
                 }
 
-                if(cliente.conectar())
+                if (cliente.conectar())
                 {
-                   //panelLogin.Visible = false;
+                    //panelLogin.Visible = false;
                     panelGridview.Visible = true;
 
                     fillInbox(0);
-                }else
+                }            
+                else
+                {
+                    txtPass.Clear();
                     MessageBox.Show("Error en Envio de Datos Servicio no disponible !", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-
+                }
 
 
             }

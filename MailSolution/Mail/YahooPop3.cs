@@ -11,11 +11,15 @@ namespace Mail
 {
     public class YahooPop3 : Pop3Server, IPop3
     {
+        DataTable inbox = new DataTable();
         public YahooPop3()
         {
             this.server = new Pop3Client();
             this.Host = "pop.mail.yahoo.com";
             this.Port = 995;
+            inbox.Columns.Add("From");
+            inbox.Columns.Add("Subject");
+            inbox.Columns.Add("Date");
         }
 
         public YahooPop3(String user, String pass)
@@ -31,7 +35,7 @@ namespace Mail
             try
             {
                 this.server.Connect(this.Host, this.Port, true);
-                this.server.Authenticate(this.User, this.Password, AuthenticationMethod.UsernameAndPassword);
+                this.server.Authenticate(this.User, this.Password);
 
             }
             catch (Exception ex)
@@ -45,7 +49,7 @@ namespace Mail
         public DataTable FillInbox(int Page)
         {
             
-            DataTable inbox = new DataTable();
+            
             
             Dictionary<int, MyHeaders> headers = this.getInbox(Page);
             inbox.Rows.Clear();
